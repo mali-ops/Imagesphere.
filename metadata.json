@@ -1,0 +1,6 @@
+{
+  "name": "ImgSphere - Image Hosting & Sharing Platform",
+  "description": "Professional image hosting, sharing, and management platform with analytics, embed codes, folders, and admin controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

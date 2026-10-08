@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImgSphere - Professional Image Hosting & Sharing Platform</title>
+    <meta name="description" content="Fast, secure, and modern image hosting platform. Upload, organize, generate shareable links, embed codes, track analytics, and manage your image library." />
+    <meta property="og:title" content="ImgSphere - Professional Image Hosting & Sharing Platform" />
+    <meta property="og:description" content="Fast, secure, and modern image hosting platform. Upload, organize, generate shareable links, embed codes, track analytics, and manage your image library." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        // Prevent benign Vite development websocket disconnects from popping up error bars
+        window.addEventListener('unhandledrejection', function(event) {
+          if (event && event.reason && (event.reason.message || '').includes('WebSocket')) {
+            event.preventDefault();
+          }
+        });
+        try {
+          var mode = localStorage.getItem('img_theme_mode');
+          if (mode === 'dark' || (!mode && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

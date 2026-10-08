@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api?raw_path=/api/$1" },
+    { "source": "/imgsphere/i/(.*)", "destination": "/api?raw_path=/imgsphere/i/$1" },
+    { "source": "/i/(.*)", "destination": "/api?raw_path=/i/$1" },
+    { "source": "/api", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
